@@ -40,6 +40,11 @@ function reload() {
     restart
 }
 
+function build() {
+    echo "Building DIY cartridge"
+    run_hook stop
+}
+
 function tidy() {
   client_message "Emptying diy logs in dir: $OPENSHIFT_LOG_DIR"
   shopt -s dotglob
@@ -52,6 +57,7 @@ case "$1" in
   restart)   restart ;;
   status)    status ;;
   reload)    reload ;;
+  build)     build ;;
   tidy)      tidy ;;
   *)         exit 0
 esac
